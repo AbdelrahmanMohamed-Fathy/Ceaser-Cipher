@@ -20,11 +20,7 @@ public class DecryptionController
         {
             Threads[i]= new Decrypter_Thread(Text[i]);
             Threads[i].start();
-        } 
-    }
-
-    public void start()
-    {
+        }
         try
         {
             StringBuilder Decipheredtext= new StringBuilder();

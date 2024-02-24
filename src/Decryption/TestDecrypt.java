@@ -13,8 +13,7 @@ public class TestDecrypt
         StringBuilder[] WorkLoad = b1.Slash();
 
         File Result = new File(ResultFile);
-
+        @SuppressWarnings("unused")
         DecryptionController EC= new DecryptionController(WorkLoad, ThreadCount, Result);
-        EC.start();
     }
 }

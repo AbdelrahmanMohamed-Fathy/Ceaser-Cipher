@@ -13,8 +13,7 @@ public class TestEncrypt
         StringBuilder[] WorkLoad = b1.Slash();
 
         File Result = new File(ResultFile);
-
+        @SuppressWarnings("unused")
         EncryptionController EC= new EncryptionController(WorkLoad, ThreadCount, Result);
-        EC.start();
     }
 }

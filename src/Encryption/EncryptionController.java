@@ -20,11 +20,7 @@ public class EncryptionController
         {
             Threads[i]= new Encrypter_Thread(Text[i]);
             Threads[i].start();
-        } 
-    }
-
-    public void start()
-    {
+        }
         try
         {
             StringBuilder Ciphertext= new StringBuilder();
