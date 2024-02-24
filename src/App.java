@@ -5,8 +5,7 @@ import Sequential.TestSequentialEncrypt;
 import Decryption.TestDecrypt;
 import Utils.Functions;
 public class App 
-{   
-@SuppressWarnings("unused")
+{
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) throws Exception 
@@ -102,7 +101,10 @@ public class App
             }
             TableLine.append(ElapsedTime/1000000 + " Milliseconds\n");
         }
+
         System.out.println(TableLine);
+        if (Functions.CompareFiles(ResultFile[20], ResultFile[23]));
+            System.out.println("Both Files are the same");
     }
 }
 

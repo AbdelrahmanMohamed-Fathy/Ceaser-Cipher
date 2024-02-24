@@ -27,7 +27,7 @@ public class DecryptionController
     {
         try
         {
-            StringBuilder DeCipheredtext= new StringBuilder();
+            StringBuilder Decipheredtext= new StringBuilder();
             for(int i=0;i<ThreadCount;i++)
             {
                 //waits for threads to finish
@@ -40,10 +40,10 @@ public class DecryptionController
                     e.printStackTrace();
                 }
                 //adds the Decrypted text to a combined string
-                DeCipheredtext.append(Text[i]);
+                Decipheredtext.append(Text[i]);
             }
             FileWriter Writer= new FileWriter(ResultsFile);
-            Writer.write(DeCipheredtext.toString());
+            Writer.write(Decipheredtext.toString());
             Writer.close();
         }
         catch(IOException e)

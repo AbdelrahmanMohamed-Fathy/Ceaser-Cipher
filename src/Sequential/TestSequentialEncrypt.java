@@ -1,7 +1,7 @@
 package Sequential;
 import java.io.FileWriter;
 import java.io.IOException;
-import Utils.*;
+import Utils.Functions;
 
 public class TestSequentialEncrypt 
 {
