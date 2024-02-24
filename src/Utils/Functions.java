@@ -1,8 +1,8 @@
 package Utils;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Functions 
 {
@@ -11,19 +11,11 @@ public class Functions
         StringBuilder Plaintext= new StringBuilder("");
         try
         {
-            String temp;
-            File Test = new File("C:\\Code\\Java\\Assignment 1\\"+Filename);
-            Scanner FileReader = new Scanner(Test);
-            temp = FileReader.nextLine();
-            Plaintext.append(temp);
-            while (FileReader.hasNextLine())
-            {
-                temp = FileReader.nextLine();
-                Plaintext.append(temp);
-            }
-            FileReader.close();
+            Path Test = Paths.get("C:\\Code\\Java\\Assignment 1\\"+Filename);
+            String Temp = Files.readAllLines(Test).toString();
+            Plaintext.append(Temp.substring(1,Temp.length()-1));
         }
-        catch(FileNotFoundException e)
+        catch(IOException e)
         {
             System.out.println("File not found");
             e.printStackTrace();

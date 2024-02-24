@@ -8,29 +8,29 @@ public class DecryptionController
     private int ThreadCount;
     private StringBuilder[] Text;
     private Decrypter_Thread[] Threads;
-    private File Results;
-    DecryptionController(StringBuilder[] T,int TC,File R)
+    private File ResultsFile;
+
+    public DecryptionController(StringBuilder[] T,int TC,File R)
     {
         Text=T;
         ThreadCount=TC;
-        Results=R;
+        ResultsFile=R;
         Threads= new Decrypter_Thread[ThreadCount];
         for(int i=0;i<ThreadCount;i++)
         {
             Threads[i]= new Decrypter_Thread(Text[i]);
+            Threads[i].start();
         } 
     }
+
     public void start()
     {
-        for(int i=0;i<ThreadCount;i++)
-        {
-            Threads[i].start();
-        }
         try
         {
-            StringBuilder Ciphertext= new StringBuilder();
+            StringBuilder DeCipheredtext= new StringBuilder();
             for(int i=0;i<ThreadCount;i++)
             {
+                //waits for threads to finish
                 try
                 {
                     Threads[i].join();
@@ -39,10 +39,11 @@ public class DecryptionController
                 {
                     e.printStackTrace();
                 }
-                Ciphertext.append(Text[i]);
+                //adds the Decrypted text to a combined string
+                DeCipheredtext.append(Text[i]);
             }
-            FileWriter Writer= new FileWriter(Results);
-            Writer.write(Ciphertext.toString());
+            FileWriter Writer= new FileWriter(ResultsFile);
+            Writer.write(DeCipheredtext.toString());
             Writer.close();
         }
         catch(IOException e)

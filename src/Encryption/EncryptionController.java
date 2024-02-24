@@ -8,29 +8,29 @@ public class EncryptionController
     private int ThreadCount;
     private StringBuilder[] Text;
     private Encrypter_Thread[] Threads;
-    private File Results;
-    EncryptionController(StringBuilder[] T,int TC,File R)
+    private File ResultsFile;
+
+    public EncryptionController(StringBuilder[] T,int TC,File R)
     {
         Text=T;
         ThreadCount=TC;
-        Results=R;
+        ResultsFile=R;
         Threads= new Encrypter_Thread[ThreadCount];
         for(int i=0;i<ThreadCount;i++)
         {
             Threads[i]= new Encrypter_Thread(Text[i]);
+            Threads[i].start();
         } 
     }
+
     public void start()
     {
-        for(int i=0;i<ThreadCount;i++)
-        {
-            Threads[i].start();
-        }
         try
         {
             StringBuilder Ciphertext= new StringBuilder();
             for(int i=0;i<ThreadCount;i++)
             {
+                //waits for threads to finish
                 try
                 {
                     Threads[i].join();
@@ -39,9 +39,10 @@ public class EncryptionController
                 {
                     e.printStackTrace();
                 }
+                //adds the Encrypted text to a combined string
                 Ciphertext.append(Text[i]);
             }
-            FileWriter Writer= new FileWriter(Results);
+            FileWriter Writer= new FileWriter(ResultsFile);
             Writer.write(Ciphertext.toString());
             Writer.close();
         }

@@ -12,7 +12,6 @@ public class App
     public static void main(String[] args) throws Exception 
     {
         long[] elapsedTimes=new long[24];
-        long StartTime;
         //testfiles:
         String TwentySix = "Tests\\TwentySixBytes.txt"; String FiveKilo = "Tests\\FiveKiloBytes.txt"; String OneMega = "Tests\\OneMegaByte.txt";
 
@@ -33,7 +32,7 @@ public class App
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Ecnryption Tests:
-        StartTime = System.nanoTime();
+        Long StartTime = System.nanoTime();
         TestSequentialEncrypt T1 = new TestSequentialEncrypt(TwentySix, R01);
         elapsedTimes[0] = System.nanoTime() - StartTime;
 
@@ -178,6 +177,8 @@ public class App
             TableLine.append(elapsedTimes[i]/1000000 + " Milliseconds\n");
         }
         System.out.println(TableLine);
+
+        
     }
 }
 

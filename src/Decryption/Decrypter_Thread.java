@@ -3,25 +3,25 @@ public class Decrypter_Thread extends Thread
 {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-private StringBuilder Plaintext;
-Decrypter_Thread(StringBuilder text)
-{
-    Plaintext = text;
-}
+    private StringBuilder Plaintext;
+    public Decrypter_Thread(StringBuilder text)
+    {
+        Plaintext = text;
+    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public void run()
-{
-    char[] Ciphertext = Plaintext.toString().toCharArray();
-    int temp= Plaintext.length();
-    Plaintext.setLength(0);
-    for(int i=0;i<temp;i++)
+    public void run()
     {
-        if(Ciphertext[i]>47)
+        char[] Ciphertext = Plaintext.toString().toCharArray();
+        int TextLength= Plaintext.length();
+        Plaintext.setLength(0);
+        for(int i=0;i<TextLength;i++)
         {
-            Ciphertext[i] += 17;
+            if(Ciphertext[i]>47)
+            {
+                Ciphertext[i] += 17;
+            }
+            Plaintext.append(Ciphertext[i]);
         }
-        Plaintext.append(Ciphertext[i]);
     }
-}
 }
