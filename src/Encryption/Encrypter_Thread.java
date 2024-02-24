@@ -1,5 +1,4 @@
 package Encryption;
-
 import Utils.Functions;
 
 public class Encrypter_Thread extends Thread

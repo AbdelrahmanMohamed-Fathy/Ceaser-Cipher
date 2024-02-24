@@ -1,5 +1,5 @@
 package Decryption;
-import Utils.*;
+import Utils.Functions;
 
 public class Decrypter_Thread extends Thread
 {
