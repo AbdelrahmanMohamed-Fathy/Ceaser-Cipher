@@ -4,6 +4,16 @@ import Sequential.TestSequentialDecrypt;
 import Sequential.TestSequentialEncrypt;
 import Decryption.TestDecrypt;
 import Utils.Functions;
+
+
+/* Guide to the Results Files:
+ * Encryption:0~11 , Decryption:12~23
+ * Sequential: 0,4,8,12,16,20
+ * while rest are multithreaded in repeating order of 5-10-25 threads.
+ * 26 Bytes:0~3 , 12~15
+ * 5 KiloBytes:4~7 , 16~19
+ * 1 MegaByte:8~11 , 20~23
+ */
 public class App 
 {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
