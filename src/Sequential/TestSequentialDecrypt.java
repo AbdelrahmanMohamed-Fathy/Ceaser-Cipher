@@ -13,9 +13,13 @@ public class TestSequentialDecrypt
 
         for(int i=0;i<Plaintext.length();i++)
         {
-            if(temp[i]>47)
+            if((temp[i]>=97 && temp[i]<=122-17)|| (temp[i]>=65 && temp[i]<=90-17))
             {
                 temp[i] += 17;
+            }
+            else if((temp[i]>=122-16 && temp[i]<=122)|| (temp[i]>=90-16 && temp[i]<=90))
+            {
+                temp[i] -= 9;
             }
         }
         try
