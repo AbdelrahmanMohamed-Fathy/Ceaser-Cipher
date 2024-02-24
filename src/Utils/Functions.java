@@ -25,8 +25,8 @@ public class Functions
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static boolean CompareFiles(String FileName1,String FileName2)
     {
-        StringBuilder FileContent1 = ReadFileContents(FileName1);
-        StringBuilder FileContent2 = ReadFileContents(FileName2);
+        String FileContent1 = ReadFileContents(FileName1).toString();
+        String FileContent2 = ReadFileContents(FileName2).toString();
         if(FileContent1.equals(FileContent2))
         {
             return true;

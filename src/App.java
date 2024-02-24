@@ -103,8 +103,14 @@ public class App
         }
 
         System.out.println(TableLine);
-        if (Functions.CompareFiles(ResultFile[20], ResultFile[23]));
+        if (Functions.CompareFiles(ResultFile[20], ResultFile[23]))
+        {
             System.out.println("Both Files are the same");
+        }
+        else
+        {
+            System.out.println("Both Files are NOT the same");
+        }
     }
 }
 
