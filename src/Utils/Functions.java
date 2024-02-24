@@ -22,6 +22,7 @@ public class Functions
         }
         return Plaintext;
     }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static boolean CompareFiles(String FileName1,String FileName2)
     {
         StringBuilder FileContent1 = ReadFileContents(FileName1);
@@ -31,5 +32,31 @@ public class Functions
             return true;
         }
         return false;
+    }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public static char Encrypt(char C)
+    {
+        if((C>=97+17 && C<=122)|| (C>=65+17 && C<=90))
+        {
+            C -= 17;
+        }
+        else if((C>=97 && C<=97+16)|| (C>=65 && C<=65+16))
+        {
+            C += 9;
+        }
+        return C;
+    }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+    public static char Decrypt(char C)
+    {
+        if((C>=97 && C<=122-17)|| (C>=65 && C<=90-17))
+        {
+            C += 17;
+        }
+        else if((C>=122-16 && C<=122)|| (C>=90-16 && C<=90))
+        {
+            C -= 9;
+        }
+        return C;
     }
 }
