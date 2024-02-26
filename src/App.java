@@ -110,6 +110,10 @@ public class App
                 }
             }
             TableLine.append(ElapsedTime/1000000 + " Milliseconds\n");
+            if(i==3|i==7|i==11|i==15|i==19|i==23)
+            {
+                TableLine.append("\n");
+            }
         }
 
         System.out.println(TableLine);
